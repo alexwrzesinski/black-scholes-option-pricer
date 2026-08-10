@@ -23,13 +23,3 @@ def put_price(S,K,T,r,sigma):
     d1,d2=_d1_d2(S,K,T,r,sigma)
     PutPrice= K*np.exp(-r*T)*norm.cdf(-d2)-S*norm.cdf(-d1)
     return PutPrice
-
-
-S=100
-K=100
-T=1
-r=0.05
-sigma=0.2
-
-print("Call Price:",call_price(S,K,T,r,sigma))
-print("Put Price:",put_price(S,K,T,r,sigma))
