@@ -61,11 +61,12 @@ K=100
 T=1
 r=0.05
 sigma=0.2
-print(delta_call(S,K,T,r,sigma))
-print(delta_put(S,K,T,r,sigma))
-print(gamma(S,K,T,r,sigma))
-print(vega(S,K,T,r,sigma))
-print(theta_call(S,K,T,r,sigma))
-print(theta_put(S,K,T,r,sigma))
-print(rho_call(S,K,T,r,sigma))
-print(rho_put(S,K,T,r,sigma))
+if __name__=="__main__":
+    print(delta_call(S,K,T,r,sigma))
+    print(delta_put(S,K,T,r,sigma))
+    print(gamma(S,K,T,r,sigma))
+    print(vega(S,K,T,r,sigma))
+    print(theta_call(S,K,T,r,sigma))
+    print(theta_put(S,K,T,r,sigma))
+    print(rho_call(S,K,T,r,sigma))
+    print(rho_put(S,K,T,r,sigma))
