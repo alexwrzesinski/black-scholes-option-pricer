@@ -23,3 +23,49 @@ def put_price(S,K,T,r,sigma):
     d1,d2=_d1_d2(S,K,T,r,sigma)
     PutPrice= K*np.exp(-r*T)*norm.cdf(-d2)-S*norm.cdf(-d1)
     return PutPrice
+
+def delta_call(S,K,T,r,sigma):
+    d1,d2= _d1_d2(S,K,T,r,sigma)
+    return norm.cdf(d1)
+
+def delta_put(S,K,T,r,sigma):
+    d1,d2=_d1_d2(S,K,T,r,sigma)
+    return norm.cdf(d1)-1
+
+def gamma(S,K,T,r,sigma):
+    d1,d2=_d1_d2(S,K,T,r,sigma)
+    return norm.pdf(d1)/(S*sigma*np.sqrt(T))
+
+def vega(S,K,T,r,sigma):
+    d1,d2=_d1_d2(S,K,T,r,sigma)
+    return S*norm.pdf(d1)*np.sqrt(T)/100
+
+def theta_call(S,K,T,r,sigma):
+    d1,d2=_d1_d2(S,K,T,r,sigma)
+    return ((-S*norm.pdf(d1)*sigma)/(2*np.sqrt(T))-r*K*np.exp(-r*T)*norm.cdf(d2))/365
+
+def theta_put(S,K,T,r,sigma):
+    d1,d2=_d1_d2(S,K,T,r,sigma)
+    return ((-S*norm.pdf(d1)*sigma)/(2*np.sqrt(T))-r*K*np.exp(-r*T)*norm.cdf(-d2))/365
+
+def rho_call(S,K,T,r,sigma):
+    d1,d2=_d1_d2(S,K,T,r,sigma)
+    return K*T*np.exp(-r*T)*norm.cdf(d2)/100
+
+def rho_put(S,K,T,r,sigma):
+    d1,d2=_d1_d2(S,K,T,r,sigma)
+    return -K*T*np.exp(-r*T)*norm.cdf(-d2)/100
+
+S=100
+K=100
+T=1
+r=0.05
+sigma=0.2
+print(delta_call(S,K,T,r,sigma))
+print(delta_put(S,K,T,r,sigma))
+print(gamma(S,K,T,r,sigma))
+print(vega(S,K,T,r,sigma))
+print(theta_call(S,K,T,r,sigma))
+print(theta_put(S,K,T,r,sigma))
+print(rho_call(S,K,T,r,sigma))
+print(rho_put(S,K,T,r,sigma))
