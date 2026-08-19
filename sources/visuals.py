@@ -24,8 +24,10 @@ plt.plot(spot_range,prices)
 plt.xlabel("Spot Price")
 plt.ylabel("Call Prices")
 plt.title("Call Options vs Stock Price")
+plt.savefig("images/call_price_vs_spot.png")
 plt.show()
 
+plt.clf()
 #Delta vs Spot Price
 
 deltas = []
@@ -37,7 +39,9 @@ plt.plot(spot_range,deltas)
 plt.xlabel("Spot Price")
 plt.ylabel("Delta Value")
 plt.title("Call Option Delta vs Spot Price" )
+plt.savefig("images/delta_vs_spot.png")
 plt.show()
+plt.clf()
 
 S=100
 T_range = np.linspace(0.01,2,100)
@@ -51,4 +55,5 @@ plt.plot(T_range,vegas)
 plt.xlabel("Time to Expiry")
 plt.ylabel("Vega Value")
 plt.title("Vega vs Time to Expiry" )
+plt.savefig("images/vega_vs_time.png")
 plt.show()
